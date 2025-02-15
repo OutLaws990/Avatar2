@@ -15,7 +15,7 @@ const { joinVoiceChannel, getVoiceConnection } = require('@discordjs/voice');
 require('dotenv').config();
 
 const TOKEN = process.env.TOKEN;
-const CHANNEL_ID = "1340283846565957692"; // هنا تحط الروم اللي تبي البوت يافك فيه
+const CHANNEL_ID = ""; // هنا تحط الروم اللي تبي البوت يافك فيه
 
 const client = new Client({
     intents: [
@@ -57,15 +57,15 @@ client.on('ready', async () => {
 });
 
 client.on('messageCreate', async (message) => {
-    if (message.content === '!ww') {
+    if (message.content === '!ww') { // اختصار عشان البوت يرسل القائمة
         if (!message.member.permissions.has(PermissionsBitField.Flags.Administrator)) {
             return message.reply({ content: '❌ **ليس لديك صلاحية لاستخدام هذا الأمر.**', ephemeral: true });
         }
 
         const embed = new EmbedBuilder()
-            .setTitle('OutLaws Avatar')
-            .setDescription("**Avatar:** افتار عضو معين\n**Banner:** بنر عضو معين\n**Profile:** بروفايل عضو معين\n\nاضغط على الزر أدناه لاختيار الأفتار أو البنر أو البروفايل لعضو معين.")
-           	.setImage('https://cdn.discordapp.com/attachments/1340242891146006581/1340242907025772564/BE16FFAA-8CAB-4BD8-A723-9C74CAAAD7A8.png?ex=67b1a5f9&is=67b05479&hm=3cebf0b26cd205657a10df971fbaef6e7565919a41a909e0efa694df2dffc5b9&')
+            .setTitle('Avatar')
+            .setDescription("**Avatar:** السطر الاول\n**Banner:**السطر الثاني\n**Profile:** السطر الثالث\n\nاضغط على الزر أدناه لاختيار الأفتار أو البنر أو البروفايل لعضو معين.")
+           	.setImage('') // رابط الصورة
             .setColor(0x000000);
 
         const row = new ActionRowBuilder()
